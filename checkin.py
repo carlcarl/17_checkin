@@ -8,7 +8,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-SHOW_UI = False
+HIDE_UI = True
 
 
 def main():
@@ -19,7 +19,7 @@ def main():
     options = Options()
     options.add_argument("--disable-notifications")
 
-    if SHOW_UI:
+    if HIDE_UI:
         options.add_argument('--headless')
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-gpu')
@@ -46,7 +46,7 @@ def main():
     checkin = chrome.find_element_by_id('btnOnSwipe')
     checkin.click()
 
-    time.sleep(5)
+    time.sleep(3)
 
 if __name__ == '__main__':
     main()
