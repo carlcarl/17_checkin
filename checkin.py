@@ -27,7 +27,7 @@ def main():
 
     chrome = webdriver.Chrome('./chromedriver', chrome_options=options)
 
-    rand_start = random.randint(0, 60)
+    rand_start = random.randint(0, 300)
 
     print('Start after {} seconds...'.format(rand_start))
     time.sleep(rand_start)
