@@ -6,6 +6,7 @@ Checkin script
 import time
 import random
 
+import requests
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
@@ -16,6 +17,17 @@ def main():
     '''
     main function
     '''
+
+    account = '<account>'
+    password = '<password>'
+    config_url = ''
+
+    if config_url != '':
+        r = requests.get(config_url)
+        conf = r.json()
+        if ('checkin' not in conf) or (not conf['checkin']):
+            print('No checkin today')
+            return
 
     options = Options()
     options.add_argument("--disable-notifications")
@@ -42,8 +54,8 @@ def main():
     password = chrome.find_element_by_id('edtPassword_I')
     login = chrome.find_element_by_id('btnLogin')
 
-    account.send_keys('<account>')
-    password.send_keys('<password>')
+    account.send_keys(account)
+    password.send_keys(password)
     login.click()
 
     time.sleep(3)
