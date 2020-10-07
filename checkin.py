@@ -50,12 +50,12 @@ def main():
     )
 
     print('Do login...')
-    account = chrome.find_element_by_id('edtUserID_I')
-    password = chrome.find_element_by_id('edtPassword_I')
+    accountInput = chrome.find_element_by_id('edtUserID_I')
+    passwordInput = chrome.find_element_by_id('edtPassword_I')
     login = chrome.find_element_by_id('btnLogin')
 
-    account.send_keys(account)
-    password.send_keys(password)
+    accountInput.send_keys(account)
+    passwordInput.send_keys(password)
     login.click()
 
     time.sleep(3)
